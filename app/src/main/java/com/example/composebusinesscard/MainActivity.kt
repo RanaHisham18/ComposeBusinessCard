@@ -18,6 +18,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -27,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composebusinesscard.ui.theme.ComposeBusinessCardTheme
@@ -72,6 +74,11 @@ fun CreateBusinessCard() {
                 verticalArrangement = Arrangement.Center
             ) {
                 createImageProfile()
+                Divider(modifier = Modifier, thickness = 5.dp,
+                    color = Color.Gray)
+
+                createInfo()
+
             }
         }
     }
@@ -79,7 +86,22 @@ fun CreateBusinessCard() {
 }
 
 @Composable
-private fun createImageProfile() {
+private fun createInfo() {
+    Text(
+        text = "Rana Hisham",
+        style = MaterialTheme.typography.headlineLarge,
+        color = MaterialTheme.colorScheme.primary
+    )
+
+    Text(
+        text = "Android Engineer @ Etisalat Egypt",
+        style = MaterialTheme.typography.headlineSmall,
+        color = MaterialTheme.colorScheme.primary
+    )
+}
+
+@Composable
+private fun createImageProfile(modifier: Modifier = Modifier) {
     Surface(
         modifier = Modifier
             .size(150.dp)
@@ -96,7 +118,6 @@ private fun createImageProfile() {
             contentScale = ContentScale.Crop
         )
 
-        Text(text = "Android Developer @ Etisalat Egypt")
     }
 }
 
