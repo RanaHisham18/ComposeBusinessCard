@@ -20,6 +20,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -70,25 +71,33 @@ fun CreateBusinessCard() {
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.Center
             ) {
-                Surface(
-                    modifier = Modifier
-                        .size(150.dp)
-                        .padding(5.dp),
-                    shape = CircleShape, border = BorderStroke(0.5.dp, Color.DarkGray)
-                ) {
-
-
-                    Image(
-                        painter = painterResource(id = R.drawable.me),
-                        contentDescription = "profile photo",
-                        modifier = Modifier.size(140.dp),
-                        contentScale = ContentScale.Crop
-                    )
-                }
+                createImageProfile()
             }
         }
     }
 
+}
+
+@Composable
+private fun createImageProfile() {
+    Surface(
+        modifier = Modifier
+            .size(150.dp)
+            .padding(5.dp),
+        shape = CircleShape, border = BorderStroke(0.5.dp, Color.DarkGray)
+    ) {
+
+
+
+        Image(
+            painter = painterResource(id = R.drawable.me),
+            contentDescription = "profile photo",
+            modifier = Modifier.size(140.dp),
+            contentScale = ContentScale.Crop
+        )
+
+        Text(text = "Android Developer @ Etisalat Egypt")
+    }
 }
 
 
